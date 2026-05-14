@@ -1,0 +1,275 @@
+:root {
+  color-scheme: dark;
+  --ink: #f7f4e8;
+  --muted: #b8c5cf;
+  --panel: #17212a;
+  --panel-strong: #243343;
+  --line: rgba(255, 255, 255, 0.16);
+  --green: #54d688;
+  --yellow: #ffd166;
+  --pink: #ef476f;
+  --cyan: #4cc9f0;
+  --shadow: rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(135deg, rgba(84, 214, 136, 0.22), transparent 34%),
+    linear-gradient(225deg, rgba(239, 71, 111, 0.18), transparent 32%),
+    #101820;
+  color: var(--ink);
+  font-family:
+    "Microsoft JhengHei",
+    "PingFang TC",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  overflow: hidden;
+}
+
+button {
+  color: inherit;
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 3vw, 28px);
+}
+
+.game-wrap {
+  width: min(100%, 520px);
+  height: min(100vh - 24px, 860px);
+  min-height: 620px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 12px;
+}
+
+.topbar,
+.controls {
+  background: rgba(23, 33, 42, 0.88);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 18px 45px var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 10px;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: #17212a;
+  font-weight: 900;
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.18);
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.15rem;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.brand p {
+  color: var(--muted);
+  font-size: 0.84rem;
+  margin-top: 4px;
+}
+
+.stats {
+  display: flex;
+  gap: 8px;
+}
+
+.stats div {
+  min-width: 64px;
+  padding: 7px 9px;
+  border-radius: 7px;
+  background: var(--panel-strong);
+  text-align: center;
+}
+
+.stats span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.stats strong {
+  display: block;
+  font-size: 1.15rem;
+  line-height: 1.15;
+}
+
+.stage-shell {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #0f1720;
+  box-shadow: 0 22px 55px var(--shadow);
+  touch-action: none;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(10, 16, 22, 0.56);
+  transition:
+    opacity 160ms ease,
+    visibility 160ms ease;
+}
+
+.overlay.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.overlay-panel {
+  width: min(100%, 300px);
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(23, 33, 42, 0.92);
+  text-align: center;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42);
+}
+
+.overlay-panel h2 {
+  font-size: 1.5rem;
+  letter-spacing: 0;
+}
+
+.overlay-panel p {
+  margin-top: 8px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.primary-action,
+.icon-button {
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.primary-action {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 18px;
+  border-radius: 8px;
+  background: var(--green);
+  color: #112018;
+  font-weight: 900;
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.17);
+}
+
+.primary-action:active,
+.icon-button:active {
+  transform: translateY(1px);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 76px 1fr;
+  gap: 10px;
+  padding: 10px;
+}
+
+.icon-button {
+  height: 58px;
+  border-radius: 8px;
+  background: var(--panel-strong);
+  color: var(--ink);
+  font-size: 2.1rem;
+  font-weight: 900;
+  line-height: 1;
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.18);
+}
+
+.icon-button.pause {
+  color: #17212a;
+  background: var(--cyan);
+  font-size: 1.45rem;
+}
+
+@media (max-width: 440px) {
+  .app-shell {
+    padding: 8px;
+  }
+
+  .game-wrap {
+    height: calc(100vh - 16px);
+    min-height: 560px;
+    gap: 8px;
+  }
+
+  .topbar {
+    padding: 9px;
+  }
+
+  .stats div {
+    min-width: 55px;
+    padding: 6px 7px;
+  }
+
+  h1 {
+    font-size: 1rem;
+  }
+
+  .brand p {
+    font-size: 0.76rem;
+  }
+}
