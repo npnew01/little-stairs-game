@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>小勇下樓梯</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="game-wrap" aria-label="小勇下樓梯遊戲">
+        <header class="topbar">
+          <div class="brand">
+            <span class="brand-mark" aria-hidden="true">小</span>
+            <div>
+              <h1>小勇下樓梯</h1>
+              <p id="stateText">準備出發</p>
+            </div>
+          </div>
+          <div class="stats" aria-label="遊戲分數">
+            <div>
+              <span>分數</span>
+              <strong id="score">0</strong>
+            </div>
+            <div>
+              <span>最高</span>
+              <strong id="best">0</strong>
+            </div>
+          </div>
+        </header>
+
+        <div class="stage-shell">
+          <canvas id="game" width="420" height="680" aria-label="遊戲畫面"></canvas>
+          <div id="overlay" class="overlay">
+            <div class="overlay-panel">
+              <h2 id="overlayTitle">準備好了嗎？</h2>
+              <p id="overlayText">找準樓梯，越往下越厲害。</p>
+              <button id="primaryAction" class="primary-action" type="button">開始</button>
+            </div>
+          </div>
+        </div>
+
+        <footer class="controls" aria-label="遊戲控制">
+          <button class="icon-button" id="leftButton" type="button" aria-label="往左">‹</button>
+          <button class="icon-button pause" id="pauseButton" type="button" aria-label="暫停">Ⅱ</button>
+          <button class="icon-button" id="rightButton" type="button" aria-label="往右">›</button>
+        </footer>
+      </section>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
