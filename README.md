@@ -1,4 +1,3 @@
-# little-stairs-game
 # 小勇下樓梯
 
 一款使用 HTML、CSS、JavaScript 製作的「小朋友下樓梯」小遊戲。
